@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: nuget
+    directory: /apps/collector-windows/Kantimitsu.Collector
+    schedule:
+      interval: weekly
+  - package-ecosystem: nuget
+    directory: /apps/collector-windows/Kantimitsu.Collector.Tests
+    schedule:
+      interval: weekly

@@ -171,6 +171,9 @@ h1 em { color: #fff; font-style: normal; }
 .release-row span, .release-row strong { display: block; }
 .release-row span { color: var(--green-dim); font-size: .6rem; letter-spacing: .1em; }
 .release-row strong { margin-top: .5rem; color: var(--green-soft); }
+.checksum { overflow-wrap: anywhere; border-left: 3px solid var(--amber); padding: .8rem 1rem; background: rgba(255,176,0,.05); }
+.checksum span, .checksum code { display: block; }
+.checksum span { color: var(--amber); font-size: .65rem; letter-spacing: .1em; margin-bottom: .45rem; }
 .report-preview pre { overflow: auto; padding: 1.4rem; border: 1px solid rgba(26,255,92,.24); background: #010302; color: var(--green); font-size: .82rem; line-height: 1.6; }
 .disabled-link { opacity: .55; cursor: not-allowed; }
 .trust-summary, .result-band { display: flex; justify-content: space-between; align-items: center; gap: 2rem; border-top: 1px solid var(--line); }

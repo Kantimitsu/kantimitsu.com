@@ -33,8 +33,9 @@ export default function CollectorPage() {
       </section>
       <section className="content-section download-zone">
         <TerminalPanel label="CURRENT RELEASE" code="WIN-X64//PORTABLE">
-          <div className="release-row"><div><span>VERSION</span><strong>0.1.0-beta</strong></div><div><span>SIGNING</span><strong>Unsigned</strong></div><div><span>SHA-256</span><strong>EB74FDFF…9515B1EF</strong></div></div>
+          <div className="release-row"><div><span>VERSION</span><strong>0.1.0-beta</strong></div><div><span>RELEASED</span><strong>13 SEP 2026</strong></div><div><span>SIGNING</span><strong>Unsigned</strong></div></div>
           <p>This beta is not code-signed, so Windows SmartScreen may warn. Verify the complete SHA-256 shown in the GitHub release before running it. The self-contained build is large because it carries the .NET runtime instead of making your PC find one.</p>
+          <p className="checksum"><span>SHA-256 // ZIP</span><code>EB74FDFF8469803C86B3958978BFE9C26847DE0398049D16CF736BF49515B1EF</code></p>
           <div className="hero-actions"><a className="button primary" href="https://github.com/Kantimitsu/kantimitsu.com/releases/download/v0.1.0-beta/Kantimitsu.Collector-0.1.0-beta-win-x64.zip">DOWNLOAD WINDOWS BETA</a><a className="button" href="https://github.com/Kantimitsu/kantimitsu.com"><Code2 size={16}/> SOURCE REPOSITORY</a></div>
           <BuckimitsuGarnish caption="BUCKIMITSU // WAITING FOR THE BUILD LIGHT" pose="static" />
         </TerminalPanel>
