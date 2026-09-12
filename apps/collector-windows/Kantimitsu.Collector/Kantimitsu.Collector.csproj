@@ -13,6 +13,6 @@
     <Description>Local-first Windows streaming diagnostic report collector.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Management" Version="10.0.0" />
+    <PackageReference Include="System.Management" Version="10.0.12" />
   </ItemGroup>
 </Project>
