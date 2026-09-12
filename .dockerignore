@@ -1,0 +1,10 @@
+.git
+.github
+.tools
+artifacts
+**/bin
+**/obj
+node_modules
+dist
+.env*
+npm-debug.log*

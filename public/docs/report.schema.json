@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kantimitsu.com/docs/report.schema.json",
+  "title": "Kantimitsu Windows Diagnostic Report",
+  "description": "A user-reviewed, local-first snapshot for discussing custom Windows streaming tooling.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "collectorVersion", "generatedAtUtc", "consent", "system", "warnings"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "collectorVersion": { "type": "string", "minLength": 1, "maxLength": 32 },
+    "generatedAtUtc": { "type": "string", "format": "date-time" },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hardware", "displays", "audio", "streamingSoftware", "benchmark", "networkTest"],
+      "properties": {
+        "hardware": { "type": "boolean" },
+        "displays": { "type": "boolean" },
+        "audio": { "type": "boolean" },
+        "streamingSoftware": { "type": "boolean" },
+        "benchmark": { "type": "boolean" },
+        "networkTest": { "type": "boolean" }
+      }
+    },
+    "system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["os", "architecture"],
+      "properties": {
+        "os": { "type": "string", "maxLength": 200 },
+        "architecture": { "type": "string", "maxLength": 40 },
+        "cpu": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "logicalProcessors"],
+          "properties": {
+            "name": { "type": "string", "maxLength": 200 },
+            "logicalProcessors": { "type": "integer", "minimum": 1, "maximum": 2048 }
+          }
+        },
+        "memoryBytes": { "type": "integer", "minimum": 0 },
+        "gpus": { "type": "array", "maxItems": 16, "items": { "$ref": "#/$defs/namedDevice" } },
+        "displays": { "type": "array", "maxItems": 16, "items": { "$ref": "#/$defs/display" } },
+        "audioDevices": { "type": "array", "maxItems": 64, "items": { "$ref": "#/$defs/namedDevice" } }
+      }
+    },
+    "streamingSoftware": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "detected"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 100 },
+          "detected": { "type": "boolean" },
+          "version": { "type": "string", "maxLength": 80 }
+        }
+      }
+    },
+    "benchmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["durationSeconds", "sampleCount", "cpuPercent", "memoryUsedPercent"],
+      "properties": {
+        "durationSeconds": { "type": "integer", "minimum": 5, "maximum": 300 },
+        "sampleCount": { "type": "integer", "minimum": 1, "maximum": 1200 },
+        "cpuPercent": { "$ref": "#/$defs/summary" },
+        "memoryUsedPercent": { "$ref": "#/$defs/summary" }
+      }
+    },
+    "networkTest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["endpoint", "latencyMs", "uploadBytes", "elapsedMs"],
+      "properties": {
+        "endpoint": { "const": "https://kantimitsu.com" },
+        "latencyMs": { "type": "number", "minimum": 0 },
+        "uploadBytes": { "type": "integer", "minimum": 0, "maximum": 5242880 },
+        "elapsedMs": { "type": "number", "minimum": 0 }
+      }
+    },
+    "warnings": { "type": "array", "maxItems": 100, "items": { "type": "string", "maxLength": 300 } }
+  },
+  "$defs": {
+    "namedDevice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "maxLength": 200 },
+        "memoryBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "primary"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1, "maximum": 32768 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 32768 },
+        "primary": { "type": "boolean" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum", "mean", "maximum", "p95"],
+      "properties": {
+        "minimum": { "type": "number", "minimum": 0, "maximum": 100 },
+        "mean": { "type": "number", "minimum": 0, "maximum": 100 },
+        "maximum": { "type": "number", "minimum": 0, "maximum": 100 },
+        "p95": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}

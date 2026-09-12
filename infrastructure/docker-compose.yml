@@ -1,0 +1,36 @@
+name: kantimitsu-site
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      ENQUIRY_DESTINATION: ${ENQUIRY_DESTINATION}
+      ENQUIRY_FROM: ${ENQUIRY_FROM:-Kantimitsu Website <website@mail.kantimitsu.com>}
+      RATE_LIMIT_SALT: ${RATE_LIMIT_SALT}
+    networks: [kantimitsu_site_internal]
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/api/network-test/ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      web:
+        condition: service_healthy
+    networks: [kantimitsu_site_internal]
+
+networks:
+  kantimitsu_site_internal:
+    name: kantimitsu_site_internal

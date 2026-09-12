@@ -1,0 +1,9 @@
+{
+  "collector": {
+    "version": "0.1.0-beta",
+    "asset": "Kantimitsu.Collector-0.1.0-beta-win-x64.zip",
+    "sha256": "DA0EC7B439734ED19BA0F9562D35DA71E01E10E2CEE0C590DBF80EB0CDBEF308",
+    "unsigned": true,
+    "schemaVersion": "1.0.0"
+  }
+}

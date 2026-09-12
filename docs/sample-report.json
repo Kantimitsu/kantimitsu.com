@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectorVersion": "0.1.0-beta",
+  "generatedAtUtc": "2026-09-13T03:20:00Z",
+  "consent": {
+    "hardware": true,
+    "displays": true,
+    "audio": false,
+    "streamingSoftware": true,
+    "benchmark": true,
+    "networkTest": false
+  },
+  "system": {
+    "os": "Microsoft Windows 11 Pro 10.0.26100",
+    "architecture": "X64",
+    "cpu": { "name": "Example 8-Core Processor", "logicalProcessors": 16 },
+    "memoryBytes": 17179869184,
+    "gpus": [{ "name": "Example Graphics Card", "memoryBytes": 6442450944 }],
+    "displays": [{ "width": 1920, "height": 1080, "primary": true }]
+  },
+  "streamingSoftware": [
+    { "name": "OBS Studio", "detected": true, "version": "example-version" },
+    { "name": "TikTok LIVE Studio", "detected": false }
+  ],
+  "benchmark": {
+    "durationSeconds": 30,
+    "sampleCount": 30,
+    "cpuPercent": { "minimum": 8.2, "mean": 27.4, "maximum": 63.1, "p95": 57.8 },
+    "memoryUsedPercent": { "minimum": 51.1, "mean": 52.6, "maximum": 54.2, "p95": 54.0 }
+  },
+  "warnings": ["Audio collection was not authorised by the user."]
+}

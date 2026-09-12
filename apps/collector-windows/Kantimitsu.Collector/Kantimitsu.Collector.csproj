@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Kantimitsu.Collector</AssemblyName>
+    <RootNamespace>Kantimitsu.Collector</RootNamespace>
+    <Version>0.1.0-beta</Version>
+    <Authors>Kantimitsu</Authors>
+    <Description>Local-first Windows streaming diagnostic report collector.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.0" />
+  </ItemGroup>
+</Project>
