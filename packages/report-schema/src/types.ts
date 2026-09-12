@@ -3,7 +3,7 @@ export type DiagnosticReport = {
   schemaVersion: "1.0.0";
   collectorVersion: string;
   generatedAtUtc: string;
-  consent: Record<"hardware" | "displays" | "audio" | "streamingSoftware" | "benchmark" | "networkTest", boolean>;
+  consent: Record<"hardware" | "displays" | "audio" | "streamingSoftware" | "activeGame" | "benchmark" | "networkTest", boolean>;
   system: {
     os: string;
     architecture: string;
@@ -14,6 +14,7 @@ export type DiagnosticReport = {
     audioDevices?: Array<{ name: string }>;
   };
   streamingSoftware?: Array<{ name: string; detected: boolean; version?: string }>;
+  selectedGame?: { name: string; source: "user-selected" };
   benchmark?: { durationSeconds: number; sampleCount: number; cpuPercent: Summary; memoryUsedPercent: Summary };
   networkTest?: { endpoint: "https://kantimitsu.com"; latencyMs: number; uploadBytes: number; elapsedMs: number };
   warnings: string[];

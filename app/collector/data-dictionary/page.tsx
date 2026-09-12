@@ -10,6 +10,7 @@ const rows = [
   ["displays", "Resolution and primary-display flag", "No window titles or screen contents"],
   ["audioDevices", "Approved friendly device names", "No recording or microphone audio"],
   ["streamingSoftware", "Presence/version of five known tools", "No arbitrary application or process list"],
+  ["selectedGame", "A game name the user deliberately types", "No foreground-process or launcher inspection"],
   ["benchmark", "30 aggregate CPU/RAM samples", "No per-process or continuous monitoring"],
   ["networkTest", "Latency and byte totals against this site", "No third-party endpoints or IP stored in report"],
   ["warnings", "What was omitted or unavailable", "No raw logs containing identifiers"]

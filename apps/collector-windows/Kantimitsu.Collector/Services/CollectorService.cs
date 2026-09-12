@@ -12,7 +12,7 @@ public sealed class CollectorService
 {
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
-    public async Task<DiagnosticReport> CollectAsync(Consent consent, IProgress<string> progress, CancellationToken cancellationToken)
+    public async Task<DiagnosticReport> CollectAsync(Consent consent, string? selectedGame, IProgress<string> progress, CancellationToken cancellationToken)
     {
         var warnings = new List<string>();
         progress.Report("Reading Windows version. No usernames, paths, keys, serials or files are collected.");
@@ -49,7 +49,12 @@ public sealed class CollectorService
             catch (Exception ex) { warnings.Add($"Network test failed: {SafeMessage(ex.Message)}"); }
         }
 
-        return new DiagnosticReport { Consent = consent, System = system, StreamingSoftware = software, Benchmark = benchmark, NetworkTest = network, Warnings = warnings };
+        var trimmedGame = selectedGame?.Trim();
+        var game = consent.ActiveGame && !string.IsNullOrWhiteSpace(trimmedGame)
+            ? new SelectedGame(trimmedGame[..Math.Min(trimmedGame.Length, 120)])
+            : null;
+        if (consent.ActiveGame && game is null) warnings.Add("Game inclusion was authorised, but no game name was supplied.");
+        return new DiagnosticReport { Consent = consent, System = system, StreamingSoftware = software, SelectedGame = game, Benchmark = benchmark, NetworkTest = network, Warnings = warnings };
     }
 
     public static string Serialize(DiagnosticReport report) => JsonSerializer.Serialize(report, JsonOptions);

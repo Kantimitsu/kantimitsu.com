@@ -22,10 +22,10 @@ public partial class MainWindow : Window
         PreviewText.Text = string.Empty;
         var consent = new Consent(
             HardwareCheck.IsChecked == true, DisplaysCheck.IsChecked == true, AudioCheck.IsChecked == true,
-            SoftwareCheck.IsChecked == true, BenchmarkCheck.IsChecked == true, NetworkCheck.IsChecked == true);
+            SoftwareCheck.IsChecked == true, GameCheck.IsChecked == true, BenchmarkCheck.IsChecked == true, NetworkCheck.IsChecked == true);
         try
         {
-            var report = await _collector.CollectAsync(consent, new Progress<string>(text => StatusText.Text = text), _cancellation.Token);
+            var report = await _collector.CollectAsync(consent, GameText.Text, new Progress<string>(text => StatusText.Text = text), _cancellation.Token);
             PreviewText.Text = CollectorService.Serialize(report);
             StatusText.Text = "Report generated locally. Inspect or edit it, then save only if satisfied.";
             SaveButton.IsEnabled = true;

@@ -6,7 +6,7 @@ import { StatusTag, TerminalPanel } from '@/components/terminal-panel';
 
 export const metadata: Metadata = { title: 'Benchmark Collector', description: 'See exactly what the open-source Kantimitsu Benchmark Collector reads, excludes, and saves before downloading the Windows beta.' };
 
-const collected = ['Windows version and architecture as the report baseline', 'Separately approved CPU model, logical threads, installed RAM, GPU model, and reported VRAM', 'Separately approved display resolutions and primary-display flag', 'Separately approved audio-device friendly names', 'Presence and version of a small allow-list of streaming tools: OBS Studio, TikTok LIVE Studio, Streamer.bot, TikFinity, and SteelSeries GG', 'Optional 30-second aggregate CPU and RAM sample', 'Optional latency and 256 KiB upload test against kantimitsu.com only'];
+const collected = ['Windows version and architecture as the report baseline', 'Separately approved CPU model, logical threads, installed RAM, GPU model, and reported VRAM', 'Separately approved display resolutions and primary-display flag', 'Separately approved audio-device friendly names', 'Presence and version of a small allow-list of streaming tools: OBS Studio, TikTok LIVE Studio, Streamer.bot, TikFinity, and SteelSeries GG', 'A game name you type yourself—no foreground-process inspection', 'Optional 30-second aggregate CPU and RAM sample', 'Optional latency and 256 KiB upload test against kantimitsu.com only'];
 const prohibited = ['Passwords, tokens, cookies, browser history, or credential stores', 'Keystrokes, clipboard, screenshots, webcam, microphone, or desktop capture', 'Messages, contacts, documents, photos, or unrelated filenames', 'Complete process or installed-application lists', 'Serial numbers, product keys, MAC/IP addresses, username, or computer name', 'OBS stream keys, service credentials, plugin secrets, or account identifiers', 'Other Windows users’ data'];
 const sample = '{\n  "schemaVersion": "1.0.0",\n  "collectorVersion": "0.1.0-beta",\n  "consent": { "hardware": true, "benchmark": false },\n  "system": {\n    "os": "Microsoft Windows 11",\n    "architecture": "X64"\n  },\n  "warnings": []\n}';
 
@@ -33,7 +33,7 @@ export default function CollectorPage() {
       </section>
       <section className="content-section download-zone">
         <TerminalPanel label="CURRENT RELEASE" code="WIN-X64//PORTABLE">
-          <div className="release-row"><div><span>VERSION</span><strong>0.1.0-beta</strong></div><div><span>SIGNING</span><strong>Unsigned</strong></div><div><span>SHA-256</span><strong>DA0EC7B4…CDBEF308</strong></div></div>
+          <div className="release-row"><div><span>VERSION</span><strong>0.1.0-beta</strong></div><div><span>SIGNING</span><strong>Unsigned</strong></div><div><span>SHA-256</span><strong>EB74FDFF…9515B1EF</strong></div></div>
           <p>This beta is not code-signed, so Windows SmartScreen may warn. Verify the complete SHA-256 shown in the GitHub release before running it. The self-contained build is large because it carries the .NET runtime instead of making your PC find one.</p>
           <div className="hero-actions"><a className="button primary" href="https://github.com/Kantimitsu/kantimitsu.com/releases/download/v0.1.0-beta/Kantimitsu.Collector-0.1.0-beta-win-x64.zip">DOWNLOAD WINDOWS BETA</a><a className="button" href="https://github.com/Kantimitsu/kantimitsu.com"><Code2 size={16}/> SOURCE REPOSITORY</a></div>
           <BuckimitsuGarnish caption="BUCKIMITSU // WAITING FOR THE BUILD LIGHT" pose="static" />

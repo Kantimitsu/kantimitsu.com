@@ -13,6 +13,8 @@
       <CheckBox x:Name="DisplaysCheck" Content="Display resolutions"/>
       <CheckBox x:Name="AudioCheck" Content="Audio device friendly names"/>
       <CheckBox x:Name="SoftwareCheck" Content="Known streaming software"/>
+      <CheckBox x:Name="GameCheck" Content="Include the game name typed below"/>
+      <TextBox x:Name="GameText" MaxLength="120" Background="#020403" Foreground="{StaticResource TerminalGreen}" BorderBrush="#31543B" Padding="8" Margin="0,3,0,5" ToolTip="Typed by you; the collector does not inspect the foreground process."/>
       <CheckBox x:Name="BenchmarkCheck" Content="30-second CPU / RAM sample"/>
       <CheckBox x:Name="NetworkCheck" Content="Optional kantimitsu.com wire test"/>
       <Border BorderBrush="#31543B" BorderThickness="1" Padding="12" Margin="0,18,0,0">
