@@ -25,6 +25,10 @@ export default function CollectorPage() {
         <div className="section-heading"><p className="eyebrow">CONTROL FLOW // NOTHING SILENT</p><h2>You approve every boundary.</h2></div>
         <ol className="process-list compact"><li><span>01</span><div><h3>Read the scope</h3><p>Every category expands into the exact fields and why they help.</p></div></li><li><span>02</span><div><h3>Give explicit consent</h3><p>Nothing is pre-checked.</p></div></li><li><span>03</span><div><h3>Review and redact</h3><p>Remove sections or approved names before saving.</p></div></li><li><span>04</span><div><h3>Save locally</h3><p>Attach the JSON to an enquiry only if you choose.</p></div></li></ol>
       </section>
+      <section className="content-section media-case collector-shot">
+        <div><p className="eyebrow">ACTUAL WINDOWS BETA // NO CONCEPT ART</p><h2>The consent and preview screen.</h2><p>Every optional category starts unchecked. The generated report appears in the editable pane before the Save button becomes available.</p></div>
+        <img src="/work/collector-preview.png" alt="Kantimitsu Benchmark Collector showing unchecked consent categories and an empty local report preview" width="1080" height="760" />
+      </section>
       <section className="content-section report-preview">
         <TerminalPanel label="SAMPLE REPORT" code="SCHEMA//1.0.0">
           <pre>{sample}</pre>
@@ -35,7 +39,7 @@ export default function CollectorPage() {
         <TerminalPanel label="CURRENT RELEASE" code="WIN-X64//PORTABLE">
           <div className="release-row"><div><span>VERSION</span><strong>0.1.0-beta</strong></div><div><span>RELEASED</span><strong>13 SEP 2026</strong></div><div><span>SIGNING</span><strong>Unsigned</strong></div></div>
           <p>This beta is not code-signed, so Windows SmartScreen may warn. Verify the complete SHA-256 shown in the GitHub release before running it. The self-contained build is large because it carries the .NET runtime instead of making your PC find one.</p>
-          <p className="checksum"><span>SHA-256 // ZIP</span><code>EB74FDFF8469803C86B3958978BFE9C26847DE0398049D16CF736BF49515B1EF</code></p>
+          <p className="checksum"><span>SHA-256 // ZIP</span><code>D117B76E7CC572766A3A626611C6CD3CCD1B3FD14FA39B85AA4F65FEA753E2E4</code></p>
           <div className="hero-actions"><a className="button primary" href="https://github.com/Kantimitsu/kantimitsu.com/releases/download/v0.1.0-beta/Kantimitsu.Collector-0.1.0-beta-win-x64.zip">DOWNLOAD WINDOWS BETA</a><a className="button" href="https://github.com/Kantimitsu/kantimitsu.com"><Code2 size={16}/> SOURCE REPOSITORY</a></div>
           <BuckimitsuGarnish caption="BUCKIMITSU // WAITING FOR THE BUILD LIGHT" pose="static" />
         </TerminalPanel>

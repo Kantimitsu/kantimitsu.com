@@ -1,7 +1,6 @@
 <Application x:Class="Kantimitsu.Collector.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Application.Resources>
     <SolidColorBrush x:Key="TerminalGreen" Color="#1AFF5C" />
     <SolidColorBrush x:Key="TerminalAmber" Color="#FFB000" />
@@ -17,6 +16,6 @@
       <Setter Property="Padding" Value="16,9" />
       <Setter Property="Margin" Value="0,0,8,0" />
     </Style>
-    <Style TargetType="CheckBox"><Setter Property="Margin" Value="0,5" /></Style>
+    <Style TargetType="CheckBox"><Setter Property="Margin" Value="0,5" /><Setter Property="Foreground" Value="{StaticResource TerminalGreen}" /></Style>
   </Application.Resources>
 </Application>
