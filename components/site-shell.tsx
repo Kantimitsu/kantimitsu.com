@@ -1,4 +1,5 @@
 import { Code2, Mail } from 'lucide-react';
+import { MagneticDeflection } from './magnetic-deflection';
 
 const links = [
   ['WORK', '/work'],
@@ -44,9 +45,12 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <main className="site-shell">
       <div className="crt-noise" aria-hidden="true" />
-      <SiteHeader />
-      {children}
-      <SiteFooter />
+      <MagneticDeflection />
+      <div className="crt-content">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </div>
     </main>
   );
 }
